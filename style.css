@@ -18,7 +18,11 @@ body {
 /*navbar*/
 .container {
     display: grid;
+    grid-template-rows: repeat(3, -webkit-min-content) 70vh repeat(5,-webkit-min-content);
     grid-template-rows: repeat(3, min-content) 70vh repeat(5,min-content);
+    grid-template-columns: minmax(6rem, 1fr)
+        repeat(8, minmax(-webkit-min-content, 16rem))
+        minmax(6rem, 1fr);
     grid-template-columns: minmax(6rem, 1fr)
         repeat(8, minmax(min-content, 16rem))
         minmax(6rem, 1fr);
@@ -286,7 +290,8 @@ body {
     width: 400%;
     height: 100%;
     position: relative;
-    animation: slideshow 20s infinite;
+    -webkit-animation: slideshow 20s infinite;
+            animation: slideshow 20s infinite;
 }
 .slide {
     width: 100%;
@@ -294,7 +299,36 @@ body {
 .slide img {
     width: 100%;
     height: 100%;
-    object-fit: cover;
+    -o-object-fit: cover;
+       object-fit: cover;
+}
+
+@-webkit-keyframes slideshow {
+    0% {left: 0}
+
+    10% {left: 0}
+
+    15% {left: -100%}
+
+    25% {left: -100%}
+
+    30% {left: -200%}
+
+    40% {left: -200%}
+
+    45% {left: -300%}
+
+    55% {left: -300%}
+
+    60% {left: -200%}
+
+    70% {left: -200%}
+
+    75% {left: -100%}
+
+    85% {left: -100%}
+
+    90% {left: 0}
 }
 
 @keyframes slideshow {
@@ -355,19 +389,23 @@ body {
 }
 
 .slide-btn-1:focus ~ .slideshow-wrapper {
-    animation: none;
+    -webkit-animation: none;
+            animation: none;
     left: 0;
 }
 .slide-btn-2:focus ~ .slideshow-wrapper {
-    animation: none;
+    -webkit-animation: none;
+            animation: none;
     left: -100%;
 }
 .slide-btn-3:focus ~ .slideshow-wrapper {
-    animation: none;
+    -webkit-animation: none;
+            animation: none;
     left: -200%;
 }
 .slide-btn-4:focus ~ .slideshow-wrapper {
-    animation: none;
+    -webkit-animation: none;
+            animation: none;
     left: -300%;
 }
 /*end of banner*/
@@ -378,6 +416,7 @@ body {
     grid-row: 5/6;
     display: grid;
     grid-template-columns: repeat(4, 1fr);
+    grid-template-rows: repeat(4, -webkit-min-content);
     grid-template-rows: repeat(4, min-content);
     grid-gap: 1.6rem 3.2rem;
     justify-items: center;
@@ -450,6 +489,13 @@ body {
 .bestselling-furniture-card {
     background-color: #efefef;
     box-shadow: 0 1.5rem 6rem rgba(0,0,0,0.3);
+    transition: all .5s
+}
+
+.bestselling-furniture-card:hover {
+    box-shadow: 0 1.8rem 6rem rgba(0,0,0,0.5);
+    transform: scale(1.02);
+
 }
 
 .bestselling-furniture-img {
@@ -507,7 +553,8 @@ body {
 .gallery-img {
     width: 100%;
     height: 100%;
-    object-fit: cover;
+    -o-object-fit: cover;
+       object-fit: cover;
     opacity: .5;
     transition: opacity .5s;
 }
@@ -744,12 +791,20 @@ body {
 
 #show-hide-forms:checked  ~ .forms-wrapper{
     display: block;
-    animation: forms .5s;
+    -webkit-animation: forms .5s;
+            animation: forms .5s;
 }
 
 #show-hide-forms:checked ~ .container {
     opacity: .6;
     pointer-events: none;
+}
+
+@-webkit-keyframes forms {
+    0% {left: 40%}
+    50% {left: 60%}
+    75% {left: 45%}
+    100% {left: 50%}
 }
 
 @keyframes forms {
@@ -775,6 +830,9 @@ body {
 
 @media(max-width: 1000px){
     .container {
+        grid-template-columns: minmax(6rem, 1fr)
+        repeat(8, minmax(-webkit-min-content, 16rem))
+        minmax(4rem, 1fr);
         grid-template-columns: minmax(6rem, 1fr)
         repeat(8, minmax(min-content, 16rem))
         minmax(4rem, 1fr);
@@ -810,8 +868,12 @@ body {
 @media(max-width: 800px) {
     .container {
         grid-template-columns: minmax(2rem, 1fr)
+        repeat(8, minmax(-webkit-min-content, 16rem))
+        minmax(2rem, 1fr);
+        grid-template-columns: minmax(2rem, 1fr)
         repeat(8, minmax(min-content, 16rem))
         minmax(2rem, 1fr);
+        grid-template-rows: repeat(3, -webkit-min-content) 50vh repeat(5, -webkit-min-content);
         grid-template-rows: repeat(3, min-content) 50vh repeat(5, min-content);
     }
     .social-icons{
@@ -829,7 +891,8 @@ body {
 
     .dropdown-image{
         height: 100%;
-        object-fit: cover;
+        -o-object-fit: cover;
+           object-fit: cover;
     }
 
     .banner-btn {
@@ -864,6 +927,9 @@ body {
 
 @media(max-width: 800px) {
     .container {
+        grid-template-columns: minmax(1rem, 1fr)
+        repeat(8, minmax(-webkit-min-content, 16rem))
+        minmax(1rem, 1fr);
         grid-template-columns: minmax(1rem, 1fr)
         repeat(8, minmax(min-content, 16rem))
         minmax(1rem, 1fr);
